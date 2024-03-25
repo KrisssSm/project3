@@ -1,30 +1,6 @@
 import random
 
-def print_board(board):
-    for row in board:
-        print("|".join(row))
-        print("-" * 5)
 
-def check_win(board, player):
-    for row in board:
-        if all(cell == player for cell in row):
-            return True
-    for col in range(3):
-        if all(board[row][col] == player for row in range(3)):
-            return True
-    if all(board[i][i] == player for i in range(3)) or all(board[i][2-i] == player for i in range(3)):
-        return True
-    return False
-
-def get_available_moves(board):
-    return [(row, col) for row in range(3) for col in range(3) if board[row][col] == " "]
-
-def computer_move(board):
-    available_moves = get_available_moves(board)
-    for move in available_moves:
-        board_copy = [row[:] for row in board]
-        board_copy[move[0]][move[1]] = "X"
-        if check_win(board_copy, "X"):
             return move
     return random.choice(available_moves)
 
