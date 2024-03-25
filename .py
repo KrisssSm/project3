@@ -95,7 +95,7 @@ def main():
         print_board(board, 0)
 
         if check_win(board, turn):
-            print("Выиграл", "компьютер" if turn == "X" else "вы")
+            print("Победитель - ", "компьютер" if turn == "X" else "вы")
             break
 
         if all(all(cell != " " for cell in row) for row in board):
